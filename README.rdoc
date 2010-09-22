@@ -1,0 +1,35 @@
+= Bill Payments
+
+This helps you pay bills using a service that will send money to other
+people on your behalf, like bill.com. Actually, bill.com is the ONLY
+service this works with at the moment. 
+
+You'll need a bill.com account and to register your application with
+them to get an application key.
+
+== Features
+
+Login, get a list of vendors, create a vendor, update a vendor, add a bill. 
+
+== Usage
+
+Is pretty basic. 
+
+  options = {:application_key => "123", :email => "foo@bar.com", :password => "secret"}
+  gateway = BillPayments.BilldotcomGateway.new(options)
+  gateway.create_vendor params
+
+Every method just takes a hash of values and returns a hash result. If
+all goes well, the result might look like this:
+
+  {:status => "OK", :id => "123"}
+
+You can switch debug on to capture the XML that is sent and received:
+
+  gateway.debug = true
+
+== Meta
+
+Written by Bill Horsman
+
+http://www.bill.com
